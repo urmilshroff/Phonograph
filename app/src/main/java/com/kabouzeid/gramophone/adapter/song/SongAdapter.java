@@ -38,8 +38,6 @@ import java.util.ArrayList;
  */
 public class SongAdapter extends AbsMultiSelectAdapter<SongAdapter.ViewHolder, Song> implements MaterialCab.Callback, FastScrollRecyclerView.SectionedAdapter {
 
-    public static final String TAG = AlbumSongAdapter.class.getSimpleName();
-
     protected final AppCompatActivity activity;
     protected ArrayList<Song> dataSet;
 
@@ -81,9 +79,9 @@ public class SongAdapter extends AbsMultiSelectAdapter<SongAdapter.ViewHolder, S
         return dataSet.get(position).id;
     }
 
-    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @NonNull
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(activity).inflate(itemLayoutRes, parent, false);
         return createViewHolder(view);
     }
@@ -203,7 +201,7 @@ public class SongAdapter extends AbsMultiSelectAdapter<SongAdapter.ViewHolder, S
                 sectionName = dataSet.get(position).artistName;
                 break;
             case SortOrder.SongSortOrder.SONG_YEAR:
-                return Integer.toString(dataSet.get(position).year);
+                return MusicUtil.getYearString(dataSet.get(position).year);
         }
 
         return MusicUtil.getSectionName(sectionName);

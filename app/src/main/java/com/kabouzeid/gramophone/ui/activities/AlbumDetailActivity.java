@@ -67,7 +67,6 @@ import retrofit2.Response;
  */
 public class AlbumDetailActivity extends AbsSlidingMusicPanelActivity implements PaletteColorHolder, CabHolder, LoaderManager.LoaderCallbacks<Album> {
 
-    public static final String TAG = AlbumDetailActivity.class.getSimpleName();
     private static final int TAG_EDITOR_REQUEST = 2001;
     private static final int LOADER_ID = LoaderIds.ALBUM_DETAIL_ACTIVITY;
 
@@ -117,7 +116,7 @@ public class AlbumDetailActivity extends AbsSlidingMusicPanelActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setDrawUnderStatusbar(true);
+        setDrawUnderStatusbar();
         ButterKnife.bind(this);
 
         lastFMRestClient = new LastFMRestClient(this);
@@ -418,7 +417,7 @@ public class AlbumDetailActivity extends AbsSlidingMusicPanelActivity implements
         artistTextView.setText(album.getArtistName());
         songCountTextView.setText(MusicUtil.getSongCountString(this, album.getSongCount()));
         durationTextView.setText(MusicUtil.getReadableDurationString(MusicUtil.getTotalDuration(this, album.songs)));
-        albumYearTextView.setText(String.valueOf(album.getYear()));
+        albumYearTextView.setText(MusicUtil.getYearString(album.getYear()));
 
         adapter.swapDataSet(album.songs);
     }

@@ -22,7 +22,7 @@
         <ViewStub
             android:id="@+id/cab_stub"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
+            android:layout_height="?android:attr/actionBarSize" />
 
     </FrameLayout>
 
@@ -89,6 +89,8 @@
                             tools:ignore="ContentDescription,UnusedAttribute" />
 
                         <TextView
+                            android:ellipsize="end"
+                            android:maxLines="@integer/detail_header_tile_maxLines"
                             android:id="@+id/artist_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
