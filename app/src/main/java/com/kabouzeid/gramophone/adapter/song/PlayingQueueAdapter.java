@@ -1,9 +1,9 @@
 package com.kabouzeid.gramophone.adapter.song;
 
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -46,7 +46,6 @@ public class PlayingQueueAdapter extends SongAdapter implements DraggableItemAda
         if (holder.imageText != null) {
             holder.imageText.setText(String.valueOf(position - current));
         }
-
         if (holder.getItemViewType() == HISTORY || holder.getItemViewType() == CURRENT) {
             setAlpha(holder, 0.5f);
         }
